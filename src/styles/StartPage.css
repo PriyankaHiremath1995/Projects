@@ -1,0 +1,43 @@
+.background{
+    height: 1000px;
+    background-color: white;
+    background-image: linear-gradient(#FFFFFF,
+        #AF9CF3);
+}
+
+.center_circle{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+.center{
+    text-align: center;
+}
+
+
+.circle {
+    width: 250px;
+    height: 250px;
+    line-height: 250px;
+    border-radius: 50%;
+    color: #FF3B3C;
+    background: #fff;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button {
+    padding: 20px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #000;
+    background-color: #FF3B3F;
+    width: 300px;
+    border-radius: 20px;
+    border-width: 0px;
+    /* box-shadow: 0 9px #999; */
+}
