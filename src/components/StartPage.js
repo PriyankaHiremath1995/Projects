@@ -32,24 +32,37 @@ const StartPage = () => {
   };
 
   return (
-    <div className="background">
-      {loading? <div>Loading...</div> :
+    <div className="card">
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
         <>
-          {error?(<div>{error}</div>):(<>
-            <div className="center">
-             <img src={Logo} alt="Upraised Logo" width="500" height="120" />
-            </div>
+          {error ? (
+            <div>{error}</div>
+          ) : (
+            <>
+              <div className="center">
+                <img src={Logo} alt="Upraised Logo" width="300" height="90" />
+              </div>
 
-            <div className="center_circle" style={{ paddingTop: "100px" }}>
-              <div className="circle"> Quiz</div>
-            </div>
+              <div className="center_circle" style={{ paddingTop: "70px" }}>
+                <div className="circle"> Quiz</div>
+              </div>
 
-            <div className="center" style={{ paddingTop: "150px" }}>
-              <button className="button"onClick={() => {startQuiz()}}>Start</button>
-            </div>
-          </>)}
+              <div className="center" style={{ paddingTop: "100px" }}>
+                <button
+                  className="button"
+                  onClick={() => {
+                    startQuiz();
+                  }}
+                >
+                  Start
+                </button>
+              </div>
+            </>
+          )}
         </>
-      }
+      )}
     </div>
   );
 };

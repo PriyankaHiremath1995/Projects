@@ -1,8 +1,11 @@
-.background{
-    height: 1000px;
-    background-color: white;
-    background-image: linear-gradient(#FFFFFF,
-        #AF9CF3);
+
+.card{
+    height: 650px;
+    width: 400px;
+    /* background-color: white; */
+    /* background-image: linear-gradient(#FFFFFF,
+                #AF9CF3); */
+    border: #704bf5;
 }
 
 .center_circle{
@@ -13,6 +16,7 @@
 
 .center{
     text-align: center;
+    padding-top: 40px;
 }
 
 

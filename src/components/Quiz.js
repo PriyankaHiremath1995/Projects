@@ -33,47 +33,50 @@ const Quiz = () => {
     setSelectedAnswerIndex(null);
     setActiveQuestion((prev) => prev);
 
-    let timeTaken = activeQuestion === 0? nextStartTime - startTime: nextStartTime - quizStartTime;
+    let timeTaken =
+      activeQuestion === 0
+        ? nextStartTime - startTime
+        : nextStartTime - quizStartTime;
     var m = Math.floor(timeTaken / (60 * 60));
     timeTaken = timeTaken - m * 60 * 60;
     var s = Math.floor(timeTaken / 60);
     timeTaken = timeTaken - s * 60;
     var ms = timeTaken;
 
-  const body = {
-    question: question,
-    answer: choices[selectedAnswerIndex],
-    isCorrect: selectedAnswer ? true : false,
-    timeTaken: `${m}m:${s}s:${ms}ms`,
-  };
+    const body = {
+      question: question,
+      answer: choices[selectedAnswerIndex],
+      isCorrect: selectedAnswer ? true : false,
+      timeTaken: `${m}m:${s}s:${ms}ms`,
+    };
 
-  fetch("http://localhost:8000/results", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+    fetch("http://localhost:8000/results", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-  if (activeQuestion !== questions.length - 1) {
-    setActiveQuestion((prev) => prev + 1);
-  } else {
-    fetch("http://localhost:8000/results")
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Failed to fetch the data.");
-        }
-          return res.json();
-      })
-      .then((result) => {
-        setValues(result);
-        let correctAnswers = 0;
-        let wrongAnswers = 0;
-
-        result.map((eachResult) => {
-          if (eachResult.isCorrect) {
-            correctAnswers = correctAnswers + 1;
-          }else{
-            wrongAnswers = wrongAnswers + 1;
+    if (activeQuestion !== questions.length - 1) {
+      setActiveQuestion((prev) => prev + 1);
+    } else {
+      fetch("http://localhost:8000/results")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Failed to fetch the data.");
           }
+          return res.json();
+        })
+        .then((result) => {
+          setValues(result);
+          let correctAnswers = 0;
+          let wrongAnswers = 0;
+
+          result.map((eachResult) => {
+            if (eachResult.isCorrect) {
+              correctAnswers = correctAnswers + 1;
+            } else {
+              wrongAnswers = wrongAnswers + 1;
+            }
           });
           setResult({
             correctAnswers: correctAnswers,
@@ -84,11 +87,11 @@ const Quiz = () => {
           setLoading(false);
           setError(null);
         })
-      .catch((err) => {
-        setShowResult(true);
-        setError(err.message);
-        setLoading(false);
-      });
+        .catch((err) => {
+          setShowResult(true);
+          setError(err.message);
+          setLoading(false);
+        });
     }
   };
 
@@ -104,7 +107,7 @@ const Quiz = () => {
   return (
     <div className="quiz-container">
       {!showResult ? (
-        <div>
+        <>
           <div style={{ width: 95, height: 100, margin: "auto" }}>
             <CircularProgressbar
               styles={buildStyles({
@@ -130,16 +133,16 @@ const Quiz = () => {
               </li>
             ))}
           </ul>
-          <div className="flex-right">
-            <button
-              onClick={onClickNext}
-              disabled={selectedAnswerIndex === null}
-              style={{ cursor: "pointer" }}
-            >
-              {activeQuestion === questions.length - 1 ? "Finish" : "Next"}
-            </button>
-          </div>
-        </div>
+          <button
+            onClick={onClickNext}
+            disabled={selectedAnswerIndex === null}
+            style={{ cursor: "pointer" }}
+          >
+            {activeQuestion === questions.length - 1
+              ? "Finish"
+              : "Next" + "              🠢"}
+          </button>
+        </>
       ) : (
         <>
           {loading && <div>Loading...</div>}

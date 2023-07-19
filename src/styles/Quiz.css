@@ -1,26 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100;200;300;400;500;600;700;800&display=swap');
 
 body {
-    font-family: 'Anek Malayalam', sans-serif;
-    height: 1000px;
-        background-color: white;
-        background-image: linear-gradient(#FFFFFF,
-                #AF9CF3);
-    color: #11052c;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0 30px;
+    /* font-family: 'Anek Malayalam', sans-serif; */
+    /* height: 1000px; */
+    /* background-color: #AF9CF3;
+    color: #AF9CF3; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* margin: 0;
+    padding: 0 30px; */
+    background-image: url("../images/background.jpg");
 }
 
 .quiz-container {
-    max-width: 500px;
-    min-width: 250px;
+    height: 550px;
+    width: 250px;
     background: white;
-    border-radius: 4px;
+    /* background-image: linear-gradient(#FFFFFF, */
+                /* #AF9CF3); */
+    border-radius: 25px;
     margin-top: 100px;
-    padding: 30px 60px;
+    padding: 0px 60px;
     text-align: center;
+    
 }
 
 .quiz-container .active-question-no {
@@ -66,7 +68,7 @@ body {
 
 .quiz-container button {
     background: linear-gradient(90.04deg, #3601f5 0.03%, #AF9CF3 99.96%);
-    border-radius: 9px;
+    border-radius: 60px;
     font-size: 18px;
     color: #ffffff;
     padding: 10px 42px;
@@ -74,6 +76,7 @@ body {
     border: none;
     cursor: pointer;
     margin-top: 15px;
+    width: 250px;
 }
 
 .quiz-container button:disabled {
