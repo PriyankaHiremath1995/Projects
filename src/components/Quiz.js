@@ -105,44 +105,58 @@ const Quiz = () => {
   };
 
   return (
-    <div className="quiz-container">
+    <>
       {!showResult ? (
-        <>
-          <div style={{ width: 95, height: 100, margin: "auto" }}>
+        <div className="quiz-container">
+          <div
+            style={{
+              width: 95,
+              height: 100,
+              margin: "auto",
+              position: "absolute",
+              left: "630px",
+              top: "50px",
+              zIndex: 1,
+              background: "white",
+              borderRadius: "150px",
+            }}
+          >
             <CircularProgressbar
               styles={buildStyles({
-                pathColor: "#552fe0",
-                textColor: "#552fe0",
+                pathColor: "#44B77B",
+                textColor: "#000000",
               })}
               value={((activeQuestion + 1) / questions.length) * 100}
               text={`${activeQuestion + 1}/${questions.length}`}
             />
           </div>
-          <h2>{question}</h2>
-          <ul>
-            {choices.map((answer, index) => (
-              <li
-                onClick={() => onAnswerSelected(answer, index)}
-                key={answer}
-                className={
-                  selectedAnswerIndex === index ? "selected-answer" : null
-                }
-                style={{ cursor: "pointer" }}
-              >
-                {answer}
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={onClickNext}
-            disabled={selectedAnswerIndex === null}
-            style={{ cursor: "pointer" }}
-          >
-            {activeQuestion === questions.length - 1
-              ? "Finish"
-              : "Next" + "              🠢"}
-          </button>
-        </>
+          <div style={{ paddingTop: "70px" }}>
+            <h2>{question}</h2>
+            <ul>
+              {choices.map((answer, index) => (
+                <li
+                  onClick={() => onAnswerSelected(answer, index)}
+                  key={answer}
+                  className={
+                    selectedAnswerIndex === index ? "selected-answer" : null
+                  }
+                  style={{ cursor: "pointer" }}
+                >
+                  {answer}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={onClickNext}
+              disabled={selectedAnswerIndex === null}
+              style={{ cursor: "pointer" }}
+            >
+              {activeQuestion === questions.length - 1
+                ? "Finish"
+                : "Next" + "              🠢"}
+            </button>
+          </div>
+        </div>
       ) : (
         <>
           {loading && <div>Loading...</div>}
@@ -156,7 +170,7 @@ const Quiz = () => {
           )}
         </>
       )}
-    </div>
+    </>
   );
 };
 

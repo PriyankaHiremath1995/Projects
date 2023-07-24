@@ -3,24 +3,30 @@
 body {
     font-family: 'Anek Malayalam', sans-serif;
     height: 1000px;
-    background-color: white;
-    background-image: linear-gradient(#FFFFFF,
-            #AF9CF3);
+    background-color: #AF9CF3;
+    /* background-image: url("../images/background.jpg");  */
     color: #11052c;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 0 30px;
+    margin: auto;
+    padding-right: 20px 20px;
 }
 
 .result-container {
-    max-width: 500px;
+    /* max-width: 500px;
     min-width: 250px;
     background: white;
     border-radius: 4px;
     margin-top: 35px;
     padding: 10px 40px;
-    text-align: center;
+    text-align: center; */
+    height: 550px;
+        width: 250px;
+        background: white;
+        border-radius: 25px;
+        margin-top: 100px;
+        padding: 0px 60px;
+        text-align: center;
 }
 
 .result-container h2 {
@@ -48,15 +54,15 @@ body {
 }
 
 .button {
-    padding: 20px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #000;
-    background-color: #FF3B3F;
-    width: 300px;
-    border-radius: 20px;
-    border-width: 0px;
-    /* box-shadow: 0 9px #999; */
+    background: #FF3B3C;
+        border-radius: 60px;
+        font-size: 18px;
+        color: #000000;
+        padding: 10px 42px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 250px;
 }
